@@ -2,6 +2,8 @@ package br.edu.iftm.jpw_ferragens.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +34,8 @@ public class ClienteController {
 		return ResponseEntity.status(HttpStatus.OK).body(repo.findById(id).orElseThrow(RuntimeException::new));
 	}
 
-	@PostMapping("/livro")
-	public ResponseEntity<Cliente> novo(@RequestBody Cliente tutorial) {
-		return ResponseEntity.status(HttpStatus.OK).body(repo.save(tutorial));
+	@PostMapping("/cliente")
+	public ResponseEntity<Cliente> novo(@Valid @RequestBody Cliente cliente) {
+		return ResponseEntity.status(HttpStatus.OK).body(repo.save(cliente));
 	}
 }
