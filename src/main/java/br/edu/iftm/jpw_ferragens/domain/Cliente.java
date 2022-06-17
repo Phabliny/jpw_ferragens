@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -23,11 +23,11 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "{nome.notblank}")
+    @NotEmpty(message = "{nome.notEmpty}")
     @Size(min = 2, max = 255, message = "{nome.invalidesize}")
     private String nome;
 
-    @NotBlank(message = "{telefone.notblank}")
+    @NotEmpty(message = "{telefone.notEmpty")
     @Size(min = 13, max = 14, message = "{telefone.invalidesize}")
     private String telefone;
 

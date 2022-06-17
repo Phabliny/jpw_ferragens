@@ -26,7 +26,6 @@ public class ClienteExcelExporter {
         workbook = new XSSFWorkbook();
     }
  
-
     private void writeHeaderLine() {
         sheet = workbook.createSheet("Users");
          
@@ -38,11 +37,9 @@ public class ClienteExcelExporter {
         font.setFontHeight(16);
         style.setFont(font);
          
-        createCell(row, 0, "User ID", style);      
-        createCell(row, 1, "E-mail", style);       
-        createCell(row, 2, "Full Name", style);    
-        createCell(row, 3, "Roles", style);
-        createCell(row, 4, "Enabled", style);  
+        createCell(row, 0, "Contador", style);      
+        createCell(row, 1, "Nome", style);       
+        createCell(row, 2, "Telefone", style);    
     }
      
     private void createCell(Row row, int columnCount, Object value, CellStyle style) {
