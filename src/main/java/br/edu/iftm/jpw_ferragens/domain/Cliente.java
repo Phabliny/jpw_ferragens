@@ -28,7 +28,7 @@ public class Cliente {
     private String nome;
 
     @NotEmpty(message = "{telefone.notEmpty")
-    @Size(min = 13, max = 14, message = "{telefone.invalidesize}")
+    @Size(min = 10, max = 12, message = "{telefone.invalidesize}")
     private String telefone;
 
     @CreationTimestamp
