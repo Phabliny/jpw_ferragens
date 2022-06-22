@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Josh Cummings
  */
-@RestController
+@RestController 
+@CrossOrigin
 public class TokenController {
 
 	@Autowired
@@ -25,6 +27,7 @@ public class TokenController {
 
 	@PostMapping("/token")
 	public String token(Authentication authentication) {
+		System.out.println("+++++++++++++++++++++++++++++++++++");
 		Instant now = Instant.now();
 		long expiry = 36000L;
 		String scope = authentication.getAuthorities().stream()

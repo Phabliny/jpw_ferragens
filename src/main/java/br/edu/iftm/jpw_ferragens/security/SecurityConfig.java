@@ -42,25 +42,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${jwt.public.key}")
     RSAPublicKey key;
-
+ 
     @Value("${jwt.private.key}")
     RSAPrivateKey priv;
-
+ 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+ 
         http
-                .authorizeHttpRequests((authorize) -> authorize
-                        .anyRequest().authenticated())
-                .csrf((csrf) -> csrf.ignoringAntMatchers("/token"))
-                .httpBasic(Customizer.withDefaults())
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .exceptionHandling((exceptions) -> exceptions
-                        .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
-                        .accessDeniedHandler(new BearerTokenAccessDeniedHandler()));
+        .cors().and()
+        .authorizeHttpRequests()
+        .antMatchers("/", "/jpw/cliente").permitAll()
+        .anyRequest().authenticated().and()
+        .csrf((csrf) -> csrf.ignoringAntMatchers("/token","/jpw/cliente"))
+        .httpBasic(Customizer.withDefaults())
+        .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+        .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        .exceptionHandling((exceptions) -> exceptions
+                .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
+                .accessDeniedHandler(new BearerTokenAccessDeniedHandler()));
     }
-
+ 
     @Bean
     JwtDecoder jwtDecoder() {
         return NimbusJwtDecoder.withPublicKey(this.key).build();
