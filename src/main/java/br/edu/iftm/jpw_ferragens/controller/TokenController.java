@@ -27,7 +27,6 @@ public class TokenController {
 
 	@PostMapping("/token")
 	public String token(Authentication authentication) {
-		System.out.println("+++++++++++++++++++++++++++++++++++");
 		Instant now = Instant.now();
 		long expiry = 36000L;
 		String scope = authentication.getAuthorities().stream()
@@ -42,5 +41,4 @@ public class TokenController {
 				.build();
 		return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
 	}
-
 }

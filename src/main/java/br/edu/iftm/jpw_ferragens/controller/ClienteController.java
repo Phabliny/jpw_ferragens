@@ -23,7 +23,8 @@ import br.edu.iftm.jpw_ferragens.repository.ClienteRepository;
 @RequestMapping("/jpw")
 public class ClienteController {
     @Autowired
-    ClienteRepository repo;
+	ClienteRepository repo;
+	
     @GetMapping("/cliente")
 	public ResponseEntity<List<Cliente>> todos() {
 		return ResponseEntity.status(HttpStatus.OK).body(repo.findAll());
