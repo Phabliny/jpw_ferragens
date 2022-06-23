@@ -6,6 +6,7 @@ import java.security.interfaces.RSAPublicKey;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -39,27 +40,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${jwt.public.key}")
     RSAPublicKey key;
- 
+
     @Value("${jwt.private.key}")
     RSAPrivateKey priv;
- 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
- 
+
         http
-        .cors().and()
-        .authorizeHttpRequests()
-        .antMatchers("/", "/jpw/cliente").permitAll()
-        .anyRequest().authenticated().and()
-        .csrf((csrf) -> csrf.ignoringAntMatchers("/token","/jpw/cliente"))
-        .httpBasic(Customizer.withDefaults())
-        .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-        .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .exceptionHandling((exceptions) -> exceptions
-                .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
-                .accessDeniedHandler(new BearerTokenAccessDeniedHandler()));
+                .cors().and()
+                .authorizeHttpRequests()
+                .antMatchers(HttpMethod.POST,"/jpw/cliente").permitAll()
+                .anyRequest().authenticated().and()
+                .csrf((csrf) -> csrf.ignoringAntMatchers("/token", "/jpw/cliente"))
+                .httpBasic(Customizer.withDefaults())
+                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling((exceptions) -> exceptions
+                        .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
+                        .accessDeniedHandler(new BearerTokenAccessDeniedHandler()));
     }
- 
+
     @Bean
     JwtDecoder jwtDecoder() {
         return NimbusJwtDecoder.withPublicKey(this.key).build();

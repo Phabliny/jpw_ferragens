@@ -17,6 +17,7 @@ public class FormularioException {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(
             MethodArgumentNotValidException ex) {
+        System.out.println("\n\n----------------- ControllerAdvice -------------------------");
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();
@@ -26,17 +27,17 @@ public class FormularioException {
         return errors;
     }
 
-    @ResponseStatus(HttpStatus.CHECKPOINT)
-    @ExceptionHandler(Exception.class)
-    public String erroGeral(Exception ex) {
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>> " + ex.getMessage());
-        return ex.getMessage();
-    }
+    // @ResponseStatus(HttpStatus.CHECKPOINT)
+    // @ExceptionHandler(Exception.class)
+    // public String erroGeral(Exception ex) {
+    // System.out.println(">>>>>>>>>>>>>>>>>>>>>> " + ex.getMessage());
+    // return ex.getMessage();
+    // }
 
-    @ResponseStatus(HttpStatus.CHECKPOINT)
-    @ExceptionHandler(UsernameNotFoundException.class)
-    public String erroAutenticacao(Exception ex) {
-        System.out.println("************************** " + ex.getMessage());
-        return ex.getMessage();
-    }
+    // @ResponseStatus(HttpStatus.CHECKPOINT)
+    // @ExceptionHandler(UsernameNotFoundException.class)
+    // public String erroAutenticacao(Exception ex) {
+    // System.out.println("************************** " + ex.getMessage());
+    // return ex.getMessage();
+    // }
 }
