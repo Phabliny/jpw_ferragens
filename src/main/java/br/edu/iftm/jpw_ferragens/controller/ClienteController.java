@@ -31,7 +31,7 @@ public class ClienteController {
     @Autowired
 	ClienteService service;
 	
-	@GetMapping("/clientes")
+	@GetMapping("/cliente")
     public ResponseEntity<List<Cliente>> getAll(){
         return ResponseEntity.ok().body(service.findAll());
     }

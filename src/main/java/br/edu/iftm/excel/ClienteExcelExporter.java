@@ -21,7 +21,6 @@ public class ClienteExcelExporter {
     private final XSSFWorkbook workbook;
     private XSSFSheet sheet;
     private final List<Cliente> listaClientes;
-    private int contador = 1;
 
     public ClienteExcelExporter(List<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
@@ -38,11 +37,10 @@ public class ClienteExcelExporter {
         font.setBold(true);
         font.setFontHeight(16);
         style.setFont(font);
-
-        createCell(row, 0, "Contador", style);      
-        createCell(row, 1, "Nome", style);       
-        createCell(row, 2, "Telefone", style);    
-        createCell(row, 3, "Data_hora", style); 
+     s
+        createCell(row, 0, "Nome", style);       
+        createCell(row, 1, "Telefone", style);    
+        //createCell(row, 2, "Data_hora", style); 
 
     }
 
@@ -70,12 +68,9 @@ public class ClienteExcelExporter {
         for (Cliente cliente : listaClientes) {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
-
-            createCell(row, columnCount++, contador++, style);
-            createCell(row, columnCount++, cliente.getId(), style);
             createCell(row, columnCount++, cliente.getNome(), style);
             createCell(row, columnCount++, cliente.getTelefone(), style);
-            createCell(row, columnCount++, cliente.getLocalDateTime(), style);
+            //createCell(row, columnCount++, cliente.getLocalDateTime(), style);
         }
     }
 
