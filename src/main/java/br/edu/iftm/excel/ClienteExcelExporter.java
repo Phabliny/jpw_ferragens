@@ -37,7 +37,6 @@ public class ClienteExcelExporter {
         font.setBold(true);
         font.setFontHeight(16);
         style.setFont(font);
-     s
         createCell(row, 0, "Nome", style);       
         createCell(row, 1, "Telefone", style);    
         //createCell(row, 2, "Data_hora", style); 
