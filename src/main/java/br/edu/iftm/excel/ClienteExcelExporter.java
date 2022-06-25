@@ -1,6 +1,8 @@
 package br.edu.iftm.excel;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -37,9 +39,10 @@ public class ClienteExcelExporter {
         font.setBold(true);
         font.setFontHeight(16);
         style.setFont(font);
+
         createCell(row, 0, "Nome", style);       
         createCell(row, 1, "Telefone", style);    
-        //createCell(row, 2, "Data_hora", style); 
+        createCell(row, 2, "Data_hora", style); 
 
     }
 
@@ -67,9 +70,14 @@ public class ClienteExcelExporter {
         for (Cliente cliente : listaClientes) {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
+            
+            LocalDateTime data = cliente.getLocalDateTime();
+            DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            String dataFormatada = data.format(formatter);
+
             createCell(row, columnCount++, cliente.getNome(), style);
             createCell(row, columnCount++, cliente.getTelefone(), style);
-            //createCell(row, columnCount++, cliente.getLocalDateTime(), style);
+            createCell(row, columnCount++, dataFormatada, style);
         }
     }
 
