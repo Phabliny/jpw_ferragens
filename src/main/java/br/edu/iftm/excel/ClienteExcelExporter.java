@@ -72,7 +72,7 @@ public class ClienteExcelExporter {
             int columnCount = 0;
             
             LocalDateTime data = cliente.getLocalDateTime();
-            DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             String dataFormatada = data.format(formatter);
 
             createCell(row, columnCount++, cliente.getNome(), style);

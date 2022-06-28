@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.Data;
@@ -32,5 +34,6 @@ public class Cliente {
     private String telefone;
 
     @CreationTimestamp
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime localDateTime;
 }
