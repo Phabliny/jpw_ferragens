@@ -46,8 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors().and()
                 .authorizeHttpRequests()
-                .antMatchers(HttpMethod.POST,"/jpw/cliente", "/token").permitAll()
-                .antMatchers(HttpMethod.GET,"/jpw/clientes/export/excel").permitAll()
+                .antMatchers(HttpMethod.POST, "/jpw/cliente", "/token").permitAll()
                 .anyRequest().authenticated().and()
                 .csrf((csrf) -> csrf.ignoringAntMatchers("/token", "/jpw/cliente"))
                 .httpBasic(Customizer.withDefaults())
