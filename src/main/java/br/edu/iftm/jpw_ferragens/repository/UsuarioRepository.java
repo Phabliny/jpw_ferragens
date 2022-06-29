@@ -3,9 +3,9 @@ package br.edu.iftm.jpw_ferragens.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.iftm.jpw_ferragens.domain.User;
+import br.edu.iftm.jpw_ferragens.domain.Usuario;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
-    User findByNome(String nome);
+public interface UsuarioRepository extends CrudRepository<Usuario, Integer> {
+    Usuario findByNome(String nome);
 }

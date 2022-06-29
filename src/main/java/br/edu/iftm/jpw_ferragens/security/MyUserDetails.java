@@ -5,15 +5,15 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.edu.iftm.jpw_ferragens.domain.User;
+import br.edu.iftm.jpw_ferragens.domain.Usuario;
 
 
 public class MyUserDetails implements UserDetails {
 
-    private User usuario;
+    private Usuario usuario;
 
-    public MyUserDetails(User user) {
-        this.usuario = user;
+    public MyUserDetails(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
