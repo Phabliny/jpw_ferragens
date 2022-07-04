@@ -36,7 +36,6 @@ public class ClienteController {
         return ResponseEntity.ok().body(service.findAll());
     }
 
-    @CrossOrigin (origins = "https://jpwferragens.herokuapp.com/")
 	@PostMapping("/cliente")
 	public ResponseEntity<Cliente> novo(@Valid @RequestBody Cliente cliente) {
 		return ResponseEntity.status(HttpStatus.OK).body(service.create(cliente));
