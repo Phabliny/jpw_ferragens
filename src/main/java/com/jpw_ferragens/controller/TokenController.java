@@ -1,4 +1,4 @@
-package br.edu.iftm.jpw_ferragens.controller;
+package com.jpw_ferragens.controller;
 
 import java.time.Instant;
 import java.util.stream.Collectors;

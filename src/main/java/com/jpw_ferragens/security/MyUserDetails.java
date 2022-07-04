@@ -1,11 +1,11 @@
-package br.edu.iftm.jpw_ferragens.security;
+package com.jpw_ferragens.security;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.edu.iftm.jpw_ferragens.domain.Usuario;
+import com.jpw_ferragens.domain.Usuario;
 
 
 public class MyUserDetails implements UserDetails {

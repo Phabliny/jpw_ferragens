@@ -1,4 +1,4 @@
-package br.edu.iftm.jpw_ferragens.security;
+package com.jpw_ferragens.security;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import org.springframework.beans.factory.annotation.Value;

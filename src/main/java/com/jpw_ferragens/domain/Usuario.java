@@ -1,4 +1,4 @@
-package br.edu.iftm.jpw_ferragens.domain;
+package com.jpw_ferragens.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

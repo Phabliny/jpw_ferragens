@@ -1,9 +1,9 @@
-package br.edu.iftm.jpw_ferragens.repository;
+package com.jpw_ferragens.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.iftm.jpw_ferragens.domain.Usuario;
+import com.jpw_ferragens.domain.Usuario;
 
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer> {

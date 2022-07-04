@@ -1,4 +1,4 @@
-package br.edu.iftm.jpw_ferragens;
+package com.jpw_ferragens;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

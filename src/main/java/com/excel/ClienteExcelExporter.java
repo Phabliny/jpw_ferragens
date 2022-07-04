@@ -1,4 +1,4 @@
-package br.edu.iftm.excel;
+package com.excel;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import br.edu.iftm.jpw_ferragens.domain.Cliente;
+import com.jpw_ferragens.domain.Cliente;
 
 
 @SuppressWarnings("UnusedAssignment")

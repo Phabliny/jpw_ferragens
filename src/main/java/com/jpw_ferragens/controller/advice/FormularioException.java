@@ -1,4 +1,4 @@
-package br.edu.iftm.jpw_ferragens.controller.advice;
+package com.jpw_ferragens.controller.advice;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.http.HttpStatus;

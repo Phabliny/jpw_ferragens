@@ -1,4 +1,4 @@
-package br.edu.iftm.jpw_ferragens.service;
+package com.jpw_ferragens.service;
 
 
 import java.util.List;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.iftm.jpw_ferragens.domain.Cliente;
-import br.edu.iftm.jpw_ferragens.repository.ClienteRepository;
+import com.jpw_ferragens.domain.Cliente;
+import com.jpw_ferragens.repository.ClienteRepository;
 
 @Service
 public class ClienteService {

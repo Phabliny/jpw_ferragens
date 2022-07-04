@@ -1,4 +1,4 @@
-package br.edu.iftm.jpw_ferragens.controller;
+package com.jpw_ferragens.controller;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.iftm.excel.ClienteExcelExporter;
-import br.edu.iftm.jpw_ferragens.domain.Cliente;
-import br.edu.iftm.jpw_ferragens.service.ClienteService;
+import com.excel.ClienteExcelExporter;
+import com.jpw_ferragens.domain.Cliente;
+import com.jpw_ferragens.service.ClienteService;
 
 @CrossOrigin
 @RestController
@@ -36,7 +36,7 @@ public class ClienteController {
         return ResponseEntity.ok().body(service.findAll());
     }
 
-    @CrossOrigin
+    @CrossOrigin (origins = "https://jpwferragens.herokuapp.com/")
 	@PostMapping("/cliente")
 	public ResponseEntity<Cliente> novo(@Valid @RequestBody Cliente cliente) {
 		return ResponseEntity.status(HttpStatus.OK).body(service.create(cliente));
