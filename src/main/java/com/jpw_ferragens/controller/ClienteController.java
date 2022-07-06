@@ -31,12 +31,12 @@ public class ClienteController {
     @Autowired
 	ClienteService service;
 	
-	@GetMapping("/cliente")
+	@GetMapping("/clientes")
     public ResponseEntity<List<Cliente>> getAll(){
         return ResponseEntity.ok().body(service.findAll());
     }
 
-	@PostMapping("/cliente")
+	@PostMapping("/clientes")
 	public ResponseEntity<Cliente> novo(@Valid @RequestBody Cliente cliente) {
 		return ResponseEntity.status(HttpStatus.OK).body(service.create(cliente));
 	}

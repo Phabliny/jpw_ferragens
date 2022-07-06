@@ -25,7 +25,7 @@ public class TokenController {
 	@Autowired
 	JwtEncoder encoder;
 
-	@PostMapping("/token")
+	@PostMapping("/admin")
 	public String token(Authentication authentication) {
 		Instant now = Instant.now();
 		long expiry = 36000L;

@@ -49,9 +49,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors().and()
                 .authorizeHttpRequests()
-                .antMatchers(HttpMethod.POST, "/jpw/cliente", "/token").permitAll()
+                .antMatchers(HttpMethod.POST, "/jpw/clientes", "/admin").permitAll()
                 .anyRequest().authenticated().and()
-                .csrf((csrf) -> csrf.ignoringAntMatchers("/token", "/jpw/cliente"))
+                .csrf((csrf) -> csrf.ignoringAntMatchers("/admin", "/jpw/clientes"))
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
