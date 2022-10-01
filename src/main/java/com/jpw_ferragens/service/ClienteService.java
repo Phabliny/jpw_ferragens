@@ -14,7 +14,7 @@ import com.jpw_ferragens.repository.ClienteRepository;
 public class ClienteService {
 
     @Autowired
-    ClienteRepository repo;
+    private ClienteRepository repo;
 
     public List<Cliente> findAll() {
         return repo.findAll(Sort.by("id").ascending());
@@ -22,5 +22,9 @@ public class ClienteService {
 
     public Cliente create(Cliente novoCliente){
         return repo.save(novoCliente);
+    }
+
+    public void delete(Long id){
+        repo.deleteById(id);
     }
 }
