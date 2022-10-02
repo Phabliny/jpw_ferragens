@@ -42,6 +42,6 @@ public class Cliente {
     private String telefone;
 
     @CreationTimestamp
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
     private LocalDateTime localDateTime;
 }

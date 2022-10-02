@@ -2,6 +2,7 @@ package com.jpw_ferragens.service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -25,6 +26,10 @@ public class ClienteService {
     }
 
     public void delete(Long id){
+        Optional<Cliente> cliente = repo.findById(id);
+        if(!cliente.isPresent()) {
+            throw new RuntimeException("Error client not found!");
+        }
         repo.deleteById(id);
     }
 }

@@ -59,6 +59,7 @@ public class ClienteController {
         excelExporter.export(response);
     }
 
+    @CrossOrigin(origins = "http://localhost:3001")
     @DeleteMapping("/{id}")
 	public ResponseEntity<HttpStatus> deleteCliente(@PathVariable("id") Long id) {
 		service.delete(id);
