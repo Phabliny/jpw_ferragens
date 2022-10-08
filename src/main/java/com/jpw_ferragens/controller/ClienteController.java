@@ -59,7 +59,7 @@ public class ClienteController {
         excelExporter.export(response);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://jpwferragens.herokuapp.com/")
     @DeleteMapping("/{id}")
 	public ResponseEntity<HttpStatus> deleteCliente(@PathVariable("id") Long id) {
 		service.delete(id);
